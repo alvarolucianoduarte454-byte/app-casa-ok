@@ -1,10 +1,8 @@
 "use client";
-
 import { ReactNode, useEffect, useState } from "react";
 
 export default function ClientShell({ children }: { children: ReactNode }) {
   const [online, setOnline] = useState(true);
-
   useEffect(() => {
     const update = () => setOnline(typeof navigator !== "undefined" ? navigator.onLine : true);
     update();
@@ -17,7 +15,6 @@ export default function ClientShell({ children }: { children: ReactNode }) {
       };
     }
   }, []);
-
   return (
     <>
       {!online && (
